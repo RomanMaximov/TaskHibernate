@@ -10,14 +10,13 @@ import java.util.List;
 public class UserDaoJDBCImpl implements UserDao {
     Util util = new Util();
     private final Connection connection = util.getConnection();
-    public UserDaoJDBCImpl() {
 
-    }
+    public UserDaoJDBCImpl() {}
 
     public void createUsersTable() {
         try (Statement statement = connection.createStatement()) {
-            statement.executeUpdate("CREATE TABLE IF NOT EXISTS users " +
-                    "(id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(255), last_name VARCHAR(255), age INT)");
+            statement.executeUpdate("CREATE TABLE IF NOT EXISTS users "
+                    + "(id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(255), last_name VARCHAR(255), age INT)");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -55,9 +54,9 @@ public class UserDaoJDBCImpl implements UserDao {
         List<User> users = new ArrayList<>();
 
         try (ResultSet rs = connection.createStatement().executeQuery("SELECT * FROM users")) {
-            while(rs.next()) {
-                User user = new User(rs.getString("name"),
-                        rs.getString("last_name"), rs.getByte("age"));
+            while (rs.next()) {
+                User user = new User(rs.getString("name"), rs.getString("last_name"),
+                                    rs.getByte("age"));
                 user.setId(rs.getLong("id"));
                 users.add(user);
             }

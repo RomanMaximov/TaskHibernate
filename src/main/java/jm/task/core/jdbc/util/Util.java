@@ -1,7 +1,5 @@
 package jm.task.core.jdbc.util;
-
 import com.mysql.fabric.jdbc.FabricMySQLDriver;
-
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;

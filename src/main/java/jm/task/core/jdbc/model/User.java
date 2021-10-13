@@ -62,6 +62,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User: id = " + getId() + "name = " + getName() + "lastName = " + getLastName() + "age = " + getAge();
+        return "User: id = " + getId() + ",\tname = " + getName() + ",\tlastName = " + getLastName() + ",\tage = " + getAge();
     }
 }

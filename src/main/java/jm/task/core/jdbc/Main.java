@@ -1,7 +1,8 @@
 package jm.task.core.jdbc;
-
+import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,7 +15,12 @@ public class Main {
         userService.saveUser("Lloyd", "Christmas", (byte) 47);
 
         userService.removeUserById(2);
-        userService.getAllUsers();
+
+        List<User> users = userService.getAllUsers();
+        for (User item : users) {
+            System.out.println(item.toString());
+        }
+
         userService.cleanUsersTable();
         userService.dropUsersTable();
     }
