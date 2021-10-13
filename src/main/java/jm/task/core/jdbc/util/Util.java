@@ -11,7 +11,6 @@ public class Util {
     private static final String password = "TT555bur";
     private Connection connection;
 
-
     public Connection getConnection() {
         try {
             Driver driver = new FabricMySQLDriver();
