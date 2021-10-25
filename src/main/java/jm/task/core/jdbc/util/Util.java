@@ -15,7 +15,8 @@ public class Util {
     private static final String url = "jdbc:mysql://localhost:3306/users";
     private static final String userName = "root";
     private static final String password = "TT555bur";
-    private static SessionFactory sessionFactory = null;
+    private static SessionFactory sessionFactory;
+    private  static Util instance;
 
     public static Connection getConnection() {
         try {
@@ -49,5 +50,14 @@ public class Util {
             }
         }
         return sessionFactory;
+    }
+
+    public static Util getInstance() {
+        if(instance == null) {
+            synchronized (Util.class) {
+                instance = new Util();
+            }
+        }
+        return instance;
     }
 }
